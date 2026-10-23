@@ -1,0 +1,58 @@
+WEIGHTS:
+  AAE:
+    Decoder:
+      n128: ./checkpoints/AAE_model/AAE_model_n128_dec.pth
+      n256: ./checkpoints/AAE_model/AAE_model_n256_dec.pth
+      n512: ./checkpoints/AAE_model/AAE_model_n512_dec.pth
+      n1024: ./checkpoints/AAE_model/AAE_model_n1024_dec.pth
+      n2048: ./checkpoints/AAE_model/AAE_model_n2048_dec.pth
+    Encoder:
+      n128: ./checkpoints/AAE_model/AAE_model_n128_enc.pth
+      n256: ./checkpoints/AAE_model/AAE_model_n256_enc.pth
+      n512: ./checkpoints/AAE_model/AAE_model_n512_enc.pth
+      n1024: ./checkpoints/AAE_model/AAE_model_n1024_enc.pth
+      n2048: ./checkpoints/AAE_model/AAE_model_n2048_enc.pth
+  grade_classifier: ./checkpoints/img_classifier/grade_classifier_image_224_weight_alldata.pth
+  pax8_model_file: ./checkpoints/PAX8_Nuclei_Segmentation/PAX8_Resnet_1WCCE_9Dice_20X_hovernet_masks-30.h5
+  pax8_target: ./checkpoints/PAX8_Nuclei_Segmentation/Updated_PAX8_Normalization_Target.npy
+  vasculature: ./checkpoints/AngioPaper/Models/MM_PyT_Dice_MultiBatch/
+  cls_DIFFAE_vec: ./DIFFAE_grade/imgs_manipulated/transition_vector.npy
+  HunCRC_classifier: ./checkpoints/img_classifier/HunCRC_image_vgg19_classifier_3classes.pth
+original_dir:
+  UTSW: ./data/datasets/Driver_Mutations_From_HnE/QuPath_Projects/NucSegRegionGrade_Classification/patches/v1/224/
+  Mayo: ./data/datasets/Mayodata_withPreTumorMask.pkl
+pathologist_result:
+  ground_truth: ./analysis/gt_all.xlsx
+  pathologist_ans:
+    pathologist1_ans: ./analysis/ans1_all.xlsx
+    pathologist2_ans: ./analysis/ans2_all.xlsx
+    pathologist3_ans: ./analysis/ans3_all.xlsx
+    pathologist4_ans: ./analysis/ans4_all.xlsx
+real_data:
+  real_data_120000patches: ./data/datasets/grade_data_120000.pkl
+  real_data_4000patches: ./data/datasets/grade_data_4000.pkl
+synthetic_data:
+  synthetic_data_grade1to4: ./DIFFAE_grade/imgs_manipulated/traversedata1to4_5000pic_20interpic.pkl
+  synthetic_data_grade4to1: ./DIFFAE_grade/imgs_manipulated/traversedata4to1_5000pic_20interpic.pkl
+latent_space:
+  AAE:
+    all_data:
+      n128: './analysis/train_patients_AAE_lat_vector_n128.pkl'
+      n256: './analysis/train_patients_AAE_lat_vector_n256.pkl'
+      n512: './analysis/train_patients_AAE_lat_vector_n512.pkl'
+      n1024: './analysis/train_patients_AAE_lat_vector_n1024.pkl'
+      n2048: './analysis/train_patients_AAE_lat_vector_n2048.pkl'
+    test_data:
+      n128: './analysis/test_patients_AAE_lat_vector_n128.pkl'
+      n256: './analysis/test_patients_AAE_lat_vector_n256.pkl'
+      n512: './analysis/test_patients_AAE_lat_vector_n512.pkl'
+      n1024: './analysis/test_patients_AAE_lat_vector_n1024.pkl'
+      n2048: './analysis/test_patients_AAE_lat_vector_n2048.pkl'
+  DIFFAE: './DIFFAE_grade/imgs_manipulated/cond_vec_list_18ktrainingdata.npy'
+HoverNet_mask: './analysis/hovernet_testing_syn_img_output_for_grade1to4977.pkl'
+ViT_grade_pred: './analysis/synthetic_data_grade1to4_5000_with_ViTpred.npy'
+ViT_explanation: './analysis/ViT_explanation_real_data_4000patches.pkl'
+WSI1_data: 
+  Patches_dir: './data/datasets/ccRCC/Patch_Data/Bioinformatics_Pilot_Combined/20X_224px/'
+HunCRC_data:
+  'traversal_images_dir': './DIFFAE_HunCRC/imgs_manipulated/img_transition_fromnormaltohighgrade_dysplasia_pat_DIFFAE.pkl'
